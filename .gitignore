@@ -1,0 +1,21 @@
+# Ficheiros compilados
+*.class
+out/
+target/
+build/
+bin/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sistema operativo
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Logs e temporários
+*.log
+*.tmp
