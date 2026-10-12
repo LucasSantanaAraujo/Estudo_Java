@@ -11,6 +11,9 @@ bin/
 *.iws
 *.ipr
 
+# Soluções de referência — material de estudo pessoal, fora do repositório
+src/solutions/
+
 # Sistema operativo
 Thumbs.db
 desktop.ini

@@ -16,26 +16,13 @@ final de desenvolvimento *backend* em Java.
 
 ```
 src/
-├── fundamentos/   Sintaxe, tipos, variáveis, entrada e saída
+├── fundamentals/   Sintaxe, tipos, variáveis, entrada e saída
 ├── logica/        Condições, ciclos, decomposição de problemas
 ├── algoritmos/    Pesquisa, ordenação, recursividade
 ├── estruturas/    Arrays, listas, pilhas, filas, mapas, árvores
 └── poo/           Classes, encapsulamento, herança, polimorfismo, interfaces
 ```
 
-Cada pasta é um *package* Java. Cada exercício vive numa classe própria com o
-método `main`, para poder ser executado de forma isolada.
-
-## Como executar
-
-No IntelliJ, abrir a classe pretendida e correr com `Shift + F10`.
-
-Pela linha de comandos, a partir da raiz do repositório:
-
-```bash
-javac -d out src/fundamentos/HelloWorld.java
-java -cp out fundamentos.OlaMundo
-```
 
 ## Progresso
 

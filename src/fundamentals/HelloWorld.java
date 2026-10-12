@@ -1,4 +1,4 @@
-package fundamentos;
+package fundamentals;
 
 public class HelloWorld {
 
