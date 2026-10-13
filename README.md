@@ -12,24 +12,5 @@ final de desenvolvimento *backend* em Java.
 - Aplicar programação orientada a objetos em contextos práticos
 - Preparar a base para projetos com Spring Boot e arquitetura de microserviços
 
-## Organização
-
-```
-src/
-├── fundamentals/   Sintaxe, tipos, variáveis, entrada e saída
-├── logica/        Condições, ciclos, decomposição de problemas
-├── algoritmos/    Pesquisa, ordenação, recursividade
-├── estruturas/    Arrays, listas, pilhas, filas, mapas, árvores
-└── poo/           Classes, encapsulamento, herança, polimorfismo, interfaces
-```
 
 
-## Progresso
-
-| Área | Estado |
-|------|--------|
-| Fundamentos | Em curso |
-| Lógica | Por iniciar |
-| Algoritmos | Por iniciar |
-| Estruturas de dados | Por iniciar |
-| POO | Por iniciar |
