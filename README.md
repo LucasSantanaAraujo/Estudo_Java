@@ -1,6 +1,6 @@
-# EstudoJava
+# Estudo Java
 
-Repositório de estudo de Java, construído do zero. Serve de registo da progressão
+Repositório de estudo de Java. Serve de registo da progressão
 desde a lógica de programação até à programação orientada a objetos, com o objetivo
 final de desenvolvimento *backend* em Java.
 
