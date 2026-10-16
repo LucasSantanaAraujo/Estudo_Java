@@ -241,7 +241,7 @@ Imprime a tabuada completa de 1 a 10 em forma de grelha alinhada, com cabeçalho
 e de coluna.
 
 ### 50. ChessboardPattern
-Dado `n`, imprime um tabuleiro `n` por `n` alternando os caracteres `#` e `.`.
+Dado `n`, imprime um tabuleiro `n` por `n` alternando os caracteres `o` e `x`.
 
 ---
 
