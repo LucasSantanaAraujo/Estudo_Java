@@ -243,8 +243,7 @@ Uma *string* só com espaços deve devolver `""`.
 ### 17. StringUtils
 Não é um exercício novo: é uma arrumação.
 
-Cria a classe `StringUtils` e junta nela, como métodos `public static`, as soluções dos
-exercícios 9, 10, 13 e 16:
+Cria a classe `StringUtils` com estes quatro métodos `public static`:
 
 ```java
 public static String reverse(String text)
@@ -253,12 +252,26 @@ public static String removeSpaces(String text)
 public static String trim(String text)
 ```
 
-A classe não tem `main`. A partir daqui, sempre que um exercício precisar de uma destas
-operações, chama a `StringUtils` em vez de voltares a escrever o ciclo. Vais usá-la nos
-exercícios 19, 20, 25, 32 e 43.
+A classe não tem `main`.
 
-Isto chama-se extrair uma classe utilitária, e é a primeira vez que vais escrever código
-cujo propósito é ser usado por outro código em vez de resolver um problema directamente.
+**Não copies os ciclos para aqui.** Cada método da `StringUtils` deve apenas encaminhar
+para a classe do exercício que já resolveu o problema:
+
+```java
+public static String reverse(String text) {
+    return ReverseString.reverse(text);
+}
+```
+
+Se copiares, passas a ter a mesma lógica em dois sítios. No dia em que corrigires um bug
+num deles, o outro fica partido e tu não dás por isso. Cada operação tem de ter um único
+dono.
+
+A partir daqui, sempre que um exercício precisar de uma destas operações, chama a
+`StringUtils`. Vais usá-la nos exercícios 19, 20, 25, 32 e 43.
+
+Isto chama-se delegação, e é a primeira vez que vais escrever código cujo propósito é
+ser usado por outro código em vez de resolver um problema directamente.
 
 ---
 
@@ -270,6 +283,9 @@ Verifica se duas *strings* são iguais.
 **Método:** `public static boolean areEqual(String a, String b)`
 
 Compara caractere a caractere com um ciclo, sem usar `equals`.
+
+O método **devolve** a resposta e não imprime nada. Vai ser chamado por outros
+exercícios que querem o valor, não uma mensagem no ecrã. Quem imprime é o `main`.
 
 **Antes disso, faz esta experiência.** Escreve um programa que declare
 `String a = "Java";` e `String b = "Java";` e imprima `a == b`. Depois lê as duas do
@@ -288,12 +304,19 @@ Chama `StringUtils.toLowerCase` nas duas e depois `CompareStrings.areEqual`.
 
 ### 20. IsPalindromeString
 Verifica se uma *string* é um palíndromo, ignorando espaços e maiúsculas, para que
-`"Ana ama anã"` conte.
+`"Ana ama Ana"` conte.
 
 **Método:** `public static boolean isPalindrome(String text)`
 
-Chama `StringUtils.removeSpaces`, `StringUtils.toLowerCase` e `StringUtils.reverse`.
-A solução inteira deve caber em três ou quatro linhas se reutilizares bem.
+Chama `StringUtils.removeSpaces`, `StringUtils.toLowerCase` e `StringUtils.reverse`, e
+compara o resultado com `CompareStrings.areEqual`. A solução inteira deve caber em três
+ou quatro linhas se reutilizares bem.
+
+Testa com `"Socorram me subi no onibus em marrocos"`, que é um palíndromo clássico.
+
+Repara que palavras acentuadas não funcionam: `"Ana ama anã"` dá `false`, porque `'ã'` e
+`'a'` são caracteres diferentes e o teu `toLowerCase` só conhece `A` a `Z`. Ignorar
+acentos exigiria normalizar o texto primeiro, o que fica fora desta ficha.
 
 ### 21. FindWord `[PL2 1.6]`
 Devolve o índice onde uma *string* começa dentro de outra, ou `-1` se não existir.
@@ -320,6 +343,10 @@ Decide e documenta num comentário o que fazes com sobreposições: em `"aaaa"`,
 vezes aparece `"aa"`?
 
 ### 24. StartsWithEndsWith
+Dois métodos. O primeiro diz se uma *string* **começa** por outra: `startsWith("programming", "pro")` dá `true` e `startsWith("programming", "gram")` dá `false`,
+porque embora `"gram"` esteja lá dentro, não está no início. O segundo faz o mesmo para
+o **fim**: `endsWith("programming", "ing")` dá `true`.
+
 **Métodos:**
 ```java
 public static boolean startsWith(String text, String prefix)
@@ -327,6 +354,18 @@ public static boolean endsWith(String text, String suffix)
 ```
 
 Sem usar `startsWith` nem `endsWith`.
+
+Regras para os casos limite: um prefixo vazio está no início de qualquer *string*, logo
+devolve `true`; um prefixo maior do que a *string* devolve `false`.
+
+Pensa onde começa a comparação em cada um. No `startsWith` percorres os dois do índice
+zero. No `endsWith` o sufixo começa na posição `text.length() - suffix.length()` da
+*string* grande — desenha isso no papel com `"programming"` e `"ing"` antes de
+escreveres.
+
+Não precisas do `FindWord.indexOf` aqui. Uma comparação posicional directa é mais
+simples e mais rápida do que procurar em todas as posições para depois verificar se
+calhou na certa.
 
 ### 25. AreAnagrams
 Duas palavras são anagramas se tiverem os mesmos caracteres por ordem diferente, como
